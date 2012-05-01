@@ -15,7 +15,7 @@ test: all
 release:
 	ant release
 	$(ZIPALIGN) -f -v 4 bin/$(APP)-release.apk $(APP).apk
-	$(ADB) -d install -r $(APP).apk
+	#$(ADB) -d install -r $(APP).apk
 
 log:
 	$(ADB) logcat -s MyLog:*
