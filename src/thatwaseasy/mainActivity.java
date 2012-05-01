@@ -41,32 +41,28 @@ public class mainActivity extends Activity
 		}
 //Log.d(TAG, "
 
-//		myrtest = (rtest) findViewById(R.id.r_test);
-DisplayMetrics metrics = new DisplayMetrics();
-Display d = getWindowManager().getDefaultDisplay();
-d.getMetrics(metrics);
-Log.d(TAG, "density=" + metrics.density);
-Log.d(TAG, "densityDpi=" + metrics.densityDpi);
-Log.d(TAG, "widthPixels=" + metrics.widthPixels);
-Log.d(TAG, "heightPixels=" + metrics.heightPixels);
-Log.d(TAG, "scaledDensity=" + metrics.scaledDensity);
-Log.d(TAG, "xdpi=" + metrics.xdpi);
-Log.d(TAG, "ydpi=" + metrics.ydpi);
-
-Point p = new Point();
-d.getSize(p);
-Log.d(TAG, "p.x = " + p.x);
-Log.d(TAG, "p.y = " + p.y);
-Log.d(TAG, "refreshrate = " + d.getRefreshRate());
+//DisplayMetrics metrics = new DisplayMetrics();
+//Display d = getWindowManager().getDefaultDisplay();
+//d.getMetrics(metrics);
+//Log.d(TAG, "density=" + metrics.density);
+//Log.d(TAG, "densityDpi=" + metrics.densityDpi);
+//Log.d(TAG, "widthPixels=" + metrics.widthPixels);
+//Log.d(TAG, "heightPixels=" + metrics.heightPixels);
+//Log.d(TAG, "scaledDensity=" + metrics.scaledDensity);
+//Log.d(TAG, "xdpi=" + metrics.xdpi);
+//Log.d(TAG, "ydpi=" + metrics.ydpi);
+//Point p = new Point();
+//d.getSize(p);
+//Log.d(TAG, "p.x = " + p.x);
+//Log.d(TAG, "p.y = " + p.y);
+//Log.d(TAG, "refreshrate = " + d.getRefreshRate());
 
 	}
 
-	private static final int ITEM_TEST_0 = 0;
-	private static final int ITEM_TEST_1 = 1;
+	private static final int ITEM_MENU_0 = 0;
 @Override
 	 public boolean onCreateOptionsMenu(Menu menu) {
-		menu.add(Menu.NONE, ITEM_TEST_0, 0, "Help");
-		menu.add(Menu.NONE, ITEM_TEST_1, 0, "About");
+		menu.add(Menu.NONE, ITEM_MENU_0, 0, "About");
 //		menu.add(Menu.NONE, ITEM_VISIT_IMDB, 0,
 //			getString(R.string.visit_imdb)).setIcon(android.R.drawable.ic_menu_set_as);
 //		menu.add(Menu.NONE, ITEM_VIEW_FULL_IMAGE, 0,
@@ -77,11 +73,8 @@ Log.d(TAG, "refreshrate = " + d.getRefreshRate());
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-			case ITEM_TEST_0:
+			case ITEM_MENU_0:
 				Log.d(TAG, "menu 0 pressed");
-				return true;
-			case ITEM_TEST_1:
-				Log.d(TAG, "menu 1 pressed");
 				String abouturl = "http://www.xdr.com/acedash";
 				Intent aboutintent = new Intent(Intent.ACTION_VIEW, Uri.parse(abouturl));
 				startActivity(aboutintent);
