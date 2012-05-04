@@ -74,11 +74,18 @@ public class rtest extends View {
 		Matrix tm = new Matrix();
 		x2 = easybm.getWidth();
 		y2 = easybm.getHeight();
+		float max = Math.max(x2, y2);
+		float min = Math.min(width, height);
+		float f = min / max;
+		x2 *= f;
+		y2 *= f;
 		x1 = (width - x2) * 0.5f;
 		y1 = (height - y2) * 0.5f;
 		x2 += x1;
 		y2 += y1;
 		tm.setTranslate(x1, y1);
+		tm.postScale(f, f, x1, y1);
+
 		easyshader.setLocalMatrix(tm);
 		paint.setShader(easyshader);
 		canvas.drawRect(x1, y1, x2, y2, paint);
