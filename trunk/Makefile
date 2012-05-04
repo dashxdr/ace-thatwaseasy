@@ -3,19 +3,23 @@ ADB=$(TOOLS)/adb
 APP=ace_thatwaseasy
 ZIPALIGN=$(TOOLS)/../tools/zipalign
 
-all:
+all: release
+
+debug:
 	ant debug
+	$(ADB) -d install -r bin/$(APP)-debug.apk
 
 clean:
 	ant clean
+	rm -f *.apk
 
-test: all
-	$(ADB) -d install -r bin/$(APP)-debug.apk
+test: install
 
 release:
-	ant release
+	ant release < password_file
 	$(ZIPALIGN) -f -v 4 bin/$(APP)-release.apk $(APP).apk
-	#$(ADB) -d install -r $(APP).apk
+install:
+	$(ADB) -d install -r $(APP).apk
 
 log:
 	$(ADB) logcat -s MyLog:*
