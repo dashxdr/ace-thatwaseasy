@@ -1,4 +1,4 @@
-TOOLS=/opt/android/platform-tools
+TOOLS=$(HOME)/android-sdk-linux/platform-tools
 ADB=$(TOOLS)/adb
 APP=ace_thatwaseasy
 ZIPALIGN=$(TOOLS)/../tools/zipalign
@@ -16,7 +16,7 @@ clean:
 test: install
 
 release:
-	ant release < password_file
+	ant release
 	$(ZIPALIGN) -f -v 4 bin/$(APP)-release.apk $(APP).apk
 install:
 	$(ADB) -d install -r $(APP).apk
